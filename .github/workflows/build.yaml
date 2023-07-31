@@ -37,7 +37,7 @@ jobs:
         run: |
           npm install 
           npm run-script build
-          npm test -- --watch=false --browsers=ChromeHeadless
+          npm test -- --watch=false browsers=ChromeHeadlessNoSandbox
           ls
           ls coverage/
           
