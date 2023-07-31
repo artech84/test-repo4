@@ -30,4 +30,6 @@ jobs:
           node-version: 16.14.0
       - name: build angular
         run: |
-          npm install && npm run-script build
+          npm install 
+          npm run test
+          npm run-script build
