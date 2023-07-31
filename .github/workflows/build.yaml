@@ -36,5 +36,12 @@ jobs:
       - name: build angular
         run: |
           npm install 
-          npm test -- --watch=false --browsers=ChromeHeadless
           npm run-script build
+          npm test -- --watch=false --browsers=ChromeHeadless
+          
+      - name: Frontend test result
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Jasmin report
+          path: reports/*
