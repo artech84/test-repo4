@@ -1,0 +1,22 @@
+name: Test
+on:
+  push:
+    branches:
+      - '**'
+      
+  workflow_dispatch:
+    inputs:
+      test_data:
+        required: false
+        type: string
+        default: "test data"
+      
+      
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print env
+        env:
+          ENV_VAR_NAME: "hello"
+        run: echo $ENV_VAR_NAME
