@@ -31,5 +31,5 @@ jobs:
       - name: build angular
         run: |
           npm install 
-          npm run test
+          npm test -- --watch=false --browsers=ChromeHeadless
           npm run-script build
