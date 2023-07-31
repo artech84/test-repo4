@@ -23,6 +23,11 @@ jobs:
         env:
           ENV_VAR_NAME: "hello"
         run: echo $ENV_VAR_NAME
+        
+      - name: install azure cli
+        if: ${{!github.base_ref}}
+        uses: elstudio/action-install-azure-cli@v1
+        
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -30,4 +35,15 @@ jobs:
           node-version: 16.14.0
       - name: build angular
         run: |
-          npm install && npm run-script build
+          npm install 
+          npm run-script build
+          npm test -- --watch=false --browsers=ChromeHeadless
+          ls
+          ls reports/*
+          
+      - name: Frontend test result
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Jasmin report
+          path: reports/*
