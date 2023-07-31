@@ -38,6 +38,8 @@ jobs:
           npm install 
           npm run-script build
           npm test -- --watch=false --browsers=ChromeHeadless
+          ls
+          ls reports/*
           
       - name: Frontend test result
         uses: dorny/test-reporter@v1
