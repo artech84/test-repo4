@@ -39,7 +39,7 @@ jobs:
           npm run-script build
           npm test -- --watch=false --browsers=ChromeHeadless
           ls
-          ls coverage/
+          ls /usr/bin/
           echo $CHROME_BIN
           
       - name: Frontend test result
