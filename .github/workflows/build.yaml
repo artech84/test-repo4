@@ -38,7 +38,7 @@ jobs:
           npm install 
           npm run-script build
           npm test -- --watch=false --browsers=ChromeHeadless
-          ls
+          Install Chrome
           ls /usr/bin/
           echo $CHROME_BIN
           
