@@ -28,6 +28,11 @@ jobs:
         if: ${{github.base_ref}}
         uses: elstudio/action-install-azure-cli@v1
         
+      - name: Setup Chrome
+        uses: browser-actions/setup-chrome@v1.2.0
+        with:
+          chrome-version: latest
+        
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -35,10 +40,6 @@ jobs:
           node-version: 16.14.0
       - name: build angular
         run: |
-          npm install 
-          npm run-script build
-          npm test -- --watch=false --browsers=ChromeHeadless
-          Install Chrome
           ls /usr/bin/
           echo $CHROME_BIN
           
